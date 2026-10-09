@@ -1,0 +1,804 @@
+
+/* ========================================
+   ALANKRITA SINHA — PERSONAL PORTFOLIO
+   Modern • Elegant • Responsive
+======================================== */
+
+/* ---------- 1. COLOR THEME ---------- */
+:root {
+    --bg: #f8f7fc;
+    --surface: #ffffff;
+    --surface-alt: #f0eef9;
+    --primary: #7566c9;
+    --primary-dark: #5c4eb0;
+    --accent: #74b8b0;
+    --text: #25243a;
+    --muted: #77758c;
+    --border: #e8e5f0;
+    --shadow: 0 8px 28px rgba(48, 40, 90, 0.08);
+    --shadow-hover: 0 14px 35px rgba(48, 40, 90, 0.14);
+    --radius: 18px;
+    --transition: 0.3s ease;
+}
+
+/* Dark mode — activated by script.js */
+html[data-theme="dark"] {
+    --bg: #171725;
+    --surface: #222235;
+    --surface-alt: #2c2b43;
+    --primary: #a99bf5;
+    --primary-dark: #c0b5ff;
+    --accent: #8bd0c6;
+    --text: #f0effa;
+    --muted: #b2b0c8;
+    --border: #39374f;
+    --shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 14px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- 2. RESET & BASE ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    transition: background var(--transition),
+                color var(--transition);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* ---------- 3. PAGE CONTAINER ---------- */
+.container,
+main {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+section {
+    padding: 38px 0;
+}
+
+section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 750;
+    letter-spacing: -0.5px;
+    margin-bottom: 22px;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 10px;
+    margin-top: 9px;
+}
+
+/* ---------- 4. HEADER & NAVIGATION ---------- */
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 3px 15px rgba(40, 35, 70, 0.04);
+}
+
+.bar > div,
+.bar .container {
+    width: min(1100px, 90%);
+    min-height: 76px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+nav ul a {
+    display: block;
+    padding: 9px 13px;
+    color: var(--muted);
+    font-size: 0.94rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all var(--transition);
+}
+
+nav ul a:hover,
+nav ul a.active {
+    color: var(--primary);
+    background: var(--surface-alt);
+}
+
+.tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#theme,
+#menu {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-alt);
+    color: var(--text);
+    font-size: 1.15rem;
+    transition: all var(--transition);
+}
+
+#theme:hover,
+#menu:hover {
+    background: var(--primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+#menu {
+    display: none;
+}
+
+/* ---------- 5. HERO SECTION ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    align-items: center;
+    gap: 45px;
+    padding: 75px 0 65px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 1.06rem;
+    max-width: 650px;
+    margin-bottom: 18px;
+}
+
+.hero .eyebrow {
+    color: var(--primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.photo {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 35% 65% 60% 40% / 40% 40% 60% 60%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #ffffff;
+    font-size: 4rem;
+    font-weight: 800;
+    box-shadow: var(--shadow-hover);
+    animation: float 5s ease-in-out infinite;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* ---------- 6. BUTTONS ---------- */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 23px;
+    margin: 8px 8px 0 0;
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all var(--transition);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.btn.alt {
+    background: transparent;
+    color: var(--primary);
+}
+
+.btn.alt:hover {
+    background: var(--surface-alt);
+}
+
+/* ---------- 7. CARDS & CONTENT ---------- */
+.entry,
+.card,
+.info-card,
+.resume-section,
+.bio-card {
+    padding: 25px;
+    margin-bottom: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
+}
+
+.entry:hover,
+.card:hover,
+.info-card:hover,
+.resume-section:hover,
+.bio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary);
+}
+
+.entry h3,
+.card h3,
+.info-card h3,
+.resume-section h3,
+.bio-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.entry p,
+.card p,
+.info-card p,
+.resume-section p,
+.bio-card p {
+    color: var(--muted);
+}
+
+.entry small,
+.muted,
+small {
+    color: var(--muted);
+}
+
+/* ---------- 8. SKILLS & PROGRESS BARS ---------- */
+.skill {
+    margin-bottom: 23px;
+}
+
+.skill > span,
+.skill-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 9px;
+    font-weight: 650;
+}
+
+.track {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--surface-alt);
+}
+
+.fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: width 1.2s ease;
+}
+
+/* ---------- 9. TAGS & PILLS ---------- */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.tags span,
+.tag,
+.badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: var(--surface-alt);
+    color: var(--primary);
+    font-size: 0.88rem;
+    font-weight: 650;
+    transition: all var(--transition);
+}
+
+.tags span:hover,
+.tag:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* ---------- 10. TABLES / BIO-DATA ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    overflow: hidden;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+th,
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+th {
+    background: var(--surface-alt);
+    color: var(--text);
+    font-weight: 750;
+}
+
+td {
+    color: var(--muted);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: var(--surface-alt);
+}
+
+/* ---------- 11. CONTACT FORM ---------- */
+form {
+    width: 100%;
+}
+
+form label {
+    display: block;
+    margin: 17px 0 7px;
+    font-weight: 650;
+    color: var(--text);
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text);
+    transition: border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(117, 102, 201, 0.14);
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+.err {
+    display: block;
+    min-height: 20px;
+    margin-top: 5px;
+    color: #d84b64;
+    font-size: 0.85rem;
+}
+
+#ok {
+    display: none;
+    padding: 14px 17px;
+    margin-top: 18px;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    background: var(--surface-alt);
+    color: var(--text);
+}
+
+/* ---------- 12. FOOTER ---------- */
+footer {
+    margin-top: 45px;
+    padding: 28px 5%;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.92rem;
+}
+
+footer a {
+    font-weight: 650;
+}
+
+/* ---------- 13. EXTRA DETAILS ---------- */
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 25px 0;
+}
+
+ul,
+ol {
+    padding-left: 23px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+strong {
+    color: var(--text);
+}
+
+blockquote {
+    padding: 15px 20px;
+    border-left: 4px solid var(--primary);
+    background: var(--surface-alt);
+    border-radius: 0 12px 12px 0;
+    color: var(--muted);
+}
+
+/* ---------- 14. ANIMATIONS ---------- */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero > * {
+    animation: fadeUp 0.7s ease both;
+}
+
+section {
+    animation: fadeUp 0.6s ease both;
+}
+
+/* ---------- 15. TABLET RESPONSIVENESS ---------- */
+@media (max-width: 900px) {
+    .hero {
+        gap: 25px;
+        padding: 55px 0;
+    }
+
+    .photo {
+        width: 190px;
+        height: 190px;
+        font-size: 3.3rem;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav ul a {
+        padding: 8px 9px;
+        font-size: 0.88rem;
+    }
+}
+
+/* ---------- 16. MOBILE RESPONSIVENESS ---------- */
+@media (max-width: 720px) {
+    .bar > div,
+    .bar .container {
+        min-height: 68px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    #menu {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 5%;
+        right: 5%;
+        padding: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        box-shadow: var(--shadow-hover);
+    }
+
+    nav ul.open {
+        display: flex;
+        animation: fadeUp 0.25s ease both;
+    }
+
+    nav ul a {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+        padding: 45px 0;
+    }
+
+    .hero > div:first-child {
+        order: 2;
+    }
+
+    .hero .photo,
+    .hero > .photo {
+        order: 1;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero .btn {
+        margin: 7px 4px;
+    }
+
+    section {
+        padding: 25px 0;
+    }
+
+    .entry,
+    .card,
+    .info-card,
+    .resume-section,
+    .bio-card {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+}
+
+/* ---------- 17. SMALL PHONES ---------- */
+@media (max-width: 430px) {
+    body {
+        font-size: 15px;
+    }
+
+    .container,
+    main {
+        width: 92%;
+    }
+
+    .logo {
+        font-size: 0.95rem;
+    }
+
+    .tools {
+        gap: 6px;
+    }
+
+    #theme,
+    #menu {
+        width: 37px;
+        height: 37px;
+    }
+
+    .hero h1 {
+        font-size: 2.15rem;
+    }
+
+    .photo {
+        width: 155px;
+        height: 155px;
+        font-size: 2.8rem;
+    }
+
+    .btn {
+        padding: 11px 16px;
+        font-size: 0.9rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    .entry,
+    .card,
+    .info-card,
+    .resume-section,
+    .bio-card {
+        padding: 16px;
+    }
+
+    table {
+        font-size: 0.82rem;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
+
+/* ---------- 18. ACCESSIBILITY ---------- */
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ---------- 19. PRINT / RESUME ---------- */
+@media print {
+    .bar,
+    footer,
+    .btn,
+    #theme,
+    #menu {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #222222 !important;
+    }
+
+    .entry,
+    .card,
+    .resume-section,
+    .bio-card {
+        box-shadow: none;
+        break-inside: avoid;
+        border: 1px solid #dddddd;
+    }
+
+    main,
+    .container {
+        width: 100%;
+    }
+
+    a {
+        color: #222222;
+    }
+}
+
